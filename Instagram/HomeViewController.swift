@@ -151,4 +151,34 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             
         }
     }
+    
+    //1　PostTableViewCell内のコメントボタンをタップ
+    ////①　CommentViewController画面へ遷移
+    //////書き込みコメントを上から順にキャプションの表示
+    //////その下にコメントを表示していく
+    //////最下段にコメントするテキストフィールドを表示
+    //////投稿するボタンの作成
+    // ログアウトボタンをタップしたときに呼ばれるメソッド
+
+    //{
+    //// コメント入力画面を表示する
+    //        let commentViewController = self.storyboard?.instantiateViewController(withIdentifier: "Comment")
+    //        self.present(commentViewController!, animated: true, completion: nil)
+
+    //コメント入力画面から戻る
+    //
+    
+    //}
+//        // ログアウトする
+//        try! Auth.auth().signOut()
+//
+//        // ログイン画面を表示する
+//        let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "Login")
+//        self.present(loginViewController!, animated: true, completion: nil)
+//
+//        // ログイン画面から戻ってきた時のためにホーム画面（index = 0）を選択している状態にしておく
+//        let tabBarController = parent as! ESTabBarController
+//        tabBarController.setSelectedIndex(0, animated: false)
+//    }
+    
 }

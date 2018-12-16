@@ -27,8 +27,9 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    //////////下に表示するタブバー。画像名。
+    //////////
     func setupTab() {
-        
         // 画像のファイル名を指定してESTabBarControllerを作成する
         let tabBarController: ESTabBarController! = ESTabBarController(tabIconNames: ["home", "camera", "setting"])
         

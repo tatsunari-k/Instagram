@@ -30,21 +30,19 @@ class ImageSelectViewController: UIViewController, UIImagePickerControllerDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     // 写真を撮影/選択したときに呼ばれるメソッド
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if info[UIImagePickerControllerOriginalImage] != nil {
             // 撮影/選択された画像を取得する
             let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-            
             // あとでCLImageEditorライブラリで加工する
             print("DEBUG_PRINT: image = \(image)")
+            
             // CLImageEditorにimageを渡して、加工画面を起動する。
             let editor = CLImageEditor(image: image)!
             editor.delegate = self

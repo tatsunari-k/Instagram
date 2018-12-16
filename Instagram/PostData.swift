@@ -11,6 +11,9 @@ class PostData: NSObject {
     var date: Date?
     var likes: [String] = []
     var isLiked: Bool = false
+    //投稿に対して返信したコメント
+    //var Comment: [String] = []
+    //
     
     init(snapshot: DataSnapshot, myId: String) {
         self.id = snapshot.key

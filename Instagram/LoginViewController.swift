@@ -15,13 +15,15 @@ class LoginViewController: UIViewController {
             
             // アドレスとパスワード名のいずれかでも入力されていない時は何もしない
             if address.isEmpty || password.isEmpty {
+                print("DEBUG_PRINT: 何かが空文字です。")
                 SVProgressHUD.showError(withStatus: "必要項目を入力して下さい")
+                
                 return
             }
-            
+            ////Confirmation_Processing content :HUDとは?
             // HUDで処理中を表示
             SVProgressHUD.show()
-            
+            ////Confirmation_Processing content :user, error in　とは?  error = error　とは?
             Auth.auth().signIn(withEmail: address, password: password) { user, error in
                 if let error = error {
                     print("DEBUG_PRINT: " + error.localizedDescription)
@@ -29,10 +31,8 @@ class LoginViewController: UIViewController {
                     return
                 } else {
                     print("DEBUG_PRINT: ログインに成功しました。")
-                    
                     // HUDを消す
                     SVProgressHUD.dismiss()
-                    
                     // 画面を閉じてViewControllerに戻る
                     self.dismiss(animated: true, completion: nil)
                 }
