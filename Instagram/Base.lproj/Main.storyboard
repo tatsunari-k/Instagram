@@ -335,6 +335,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mme-92-tKu"/>
                     </view>
+                    <connections>
+                        <outlet property="commentTableView" destination="ZRI-dS-RW7" id="eSg-pU-dTz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bKy-I0-ooT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

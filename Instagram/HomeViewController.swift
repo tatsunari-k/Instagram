@@ -109,14 +109,17 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PostTableViewCell
         cell.setPostData(postArray[indexPath.row])
         
-        // セル内のボタンのアクションをソースコードで設定する
-        cell.likeButton.addTarget(self, action:#selector(handleButton(_:forEvent:)), for: .touchUpInside)
+        // セル内のボタンのアクションをソースコードで設定する　like ver
+        cell.likeButton.addTarget(self, action:#selector(handlelikeButton(_:forEvent:)), for: .touchUpInside)
+        
+        // セル内のボタンのアクションをソースコードで設定する　comment ver
+        cell.commentButton.addTarget(self, action:#selector(handlecommentButton(_:forEvent:)), for: .touchUpInside)
         
         return cell
     }
     
-    // セル内のボタンがタップされた時に呼ばれるメソッド
-    @objc func handleButton(_ sender: UIButton, forEvent event: UIEvent) {
+    // セル内のボタンがタップされた時に呼ばれるメソッド　like ver
+    @objc func handlelikeButton(_ sender: UIButton, forEvent event: UIEvent) {
         print("DEBUG_PRINT: likeボタンがタップされました。")
         
         // タップされたセルのインデックスを求める
@@ -152,33 +155,28 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     
-    //1　PostTableViewCell内のコメントボタンをタップ
-    ////①　CommentViewController画面へ遷移
-    //////書き込みコメントを上から順にキャプションの表示
-    //////その下にコメントを表示していく
-    //////最下段にコメントするテキストフィールドを表示
-    //////投稿するボタンの作成
-    // ログアウトボタンをタップしたときに呼ばれるメソッド
-
-    //{
-    //// コメント入力画面を表示する
-    //        let commentViewController = self.storyboard?.instantiateViewController(withIdentifier: "Comment")
-    //        self.present(commentViewController!, animated: true, completion: nil)
-
-    //コメント入力画面から戻る
-    //
-    
-    //}
-//        // ログアウトする
-//        try! Auth.auth().signOut()
-//
-//        // ログイン画面を表示する
-//        let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "Login")
-//        self.present(loginViewController!, animated: true, completion: nil)
-//
-//        // ログイン画面から戻ってきた時のためにホーム画面（index = 0）を選択している状態にしておく
-//        let tabBarController = parent as! ESTabBarController
-//        tabBarController.setSelectedIndex(0, animated: false)
-//    }
-    
+    // セル内のボタンがタップされた時に呼ばれるメソッド　like comment
+    @objc func handlecommentButton(_ sender: UIButton, forEvent event: UIEvent) {
+        print("DEBUG_PRINT: commnetボタンがタップされました。")
+        
+        // タップされたセルのインデックスを求める
+        let touch = event.allTouches?.first
+        let point = touch!.location(in: self.tableView)
+        let indexPath = tableView.indexPathForRow(at: point)
+     
+        // 配列からタップされたインデックスのデータを取り出す
+        //let postData = postArray[indexPath!.row]
+        
+        //コメントビューをモーダルで表示
+        let commentViewController = self.storyboard?.instantiateViewController(withIdentifier: "Comment")
+        self.present(commentViewController!, animated: true, completion: nil)
+        
+        
+        //画面を閉じる
+        //commentViewController.dismiss(animated: true, completion: nil)
+        
+        // Firebaseに保存するデータの準備
+        
+        
+    }
 }
