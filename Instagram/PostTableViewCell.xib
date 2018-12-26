@@ -60,9 +60,6 @@
                             <constraint firstAttribute="width" secondItem="WvL-8h-FdY" secondAttribute="height" multiplier="1:1" id="fBo-SR-RJo"/>
                         </constraints>
                         <state key="normal" image="balloon"/>
-                        <connections>
-                            <action selector="commentButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="dI7-67-wGM"/>
-                        </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="ユーザーコメントを表示" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r2Q-Ux-xjD">
                         <rect key="frame" x="30" y="601" width="413" height="21"/>

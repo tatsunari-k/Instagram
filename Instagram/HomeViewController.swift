@@ -160,9 +160,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         print("DEBUG_PRINT: commnetボタンがタップされました。")
         
         // タップされたセルのインデックスを求める
-        let touch = event.allTouches?.first
-        let point = touch!.location(in: self.tableView)
-        let indexPath = tableView.indexPathForRow(at: point)
+        //let touch = event.allTouches?.first
+        //let point = touch!.location(in: self.tableView)
+        //let indexPath = tableView.indexPathForRow(at: point)
      
         // 配列からタップされたインデックスのデータを取り出す
         //let postData = postArray[indexPath!.row]

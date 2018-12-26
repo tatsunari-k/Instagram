@@ -12,10 +12,9 @@ class PostData: NSObject {
     var likes: [String] = []
     var isLiked: Bool = false
     var isCommented: Bool = false
-    //投稿に対して返信したコメント
-    //var Comment: [String] = []
-    //var comments: [CommentData] = []
-    //
+        //var Comment: [String] = []
+    //投稿に対して返信したコメントセット　コメントデータ型の配列　
+    var comments: [CommentData] = []
     
     init(snapshot: DataSnapshot, myId: String) {
         self.id = snapshot.key
