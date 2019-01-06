@@ -5,12 +5,12 @@ import FirebaseDatabase
 
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    
     @IBOutlet weak var tableView: UITableView!
     
     var postArray: [PostData] = []
-    
-    // DatabaseのobserveEventの登録状態を表す
     var observing = false
+    // DatabaseのobserveEventの登録状態を表す
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +30,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // 高さ概算値 = 「縦横比1:1のUIImageViewの高さ(=画面幅)」+「いいねボタン、キャプションラベル、その他余白の高さの合計概算(=100pt)」
         tableView.estimatedRowHeight = UIScreen.main.bounds.width + 100
     }
+    
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////UIViewControllerのライフサイクルにおけるレイアウト処理前に処理される関数
+////ここで、レイアウトする前のセル内のデータの更新を適宜実行する
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -67,7 +71,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                                 break
                             }
                         }
-                        
                         // 差し替えるため一度削除する
                         self.postArray.remove(at: index)
                         
@@ -97,8 +100,12 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 observing = false
             }
         }
-        
     }
+    
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////セル内のデータ数をカウント
+////各セルを取得して、番号ごとにデータを格納していく
+////ここで、セル内のボタンをタップした際の処理も記述
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return postArray.count
@@ -155,28 +162,23 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     
-    // セル内のボタンがタップされた時に呼ばれるメソッド　like comment
+    // セル内のボタンがタップされた時に呼ばれるメソッド　comment ver
     @objc func handlecommentButton(_ sender: UIButton, forEvent event: UIEvent) {
         print("DEBUG_PRINT: commnetボタンがタップされました。")
         
         // タップされたセルのインデックスを求める
-        //let touch = event.allTouches?.first
-        //let point = touch!.location(in: self.tableView)
-        //let indexPath = tableView.indexPathForRow(at: point)
+        let touch = event.allTouches?.first
+        let point = touch!.location(in: self.tableView)
+        let indexPath = tableView.indexPathForRow(at: point)
      
         // 配列からタップされたインデックスのデータを取り出す
-        //let postData = postArray[indexPath!.row]
+        let postData = postArray[indexPath!.row]
         
         //コメントビューをモーダルで表示
-        let commentViewController = self.storyboard?.instantiateViewController(withIdentifier: "Comment")
-        self.present(commentViewController!, animated: true, completion: nil)
-        
-        
+        let commentViewController = self.storyboard?.instantiateViewController(withIdentifier: "Comment") as! CommentViewController
+        commentViewController.postData = postData
+        self.present(commentViewController, animated: true, completion: nil)
         //画面を閉じる
         //commentViewController.dismiss(animated: true, completion: nil)
-        
-        // Firebaseに保存するデータの準備
-        
-        
     }
 }

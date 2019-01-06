@@ -45,7 +45,7 @@
 		8D845F6C21B6B8C800FA8339 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		8D845F6E21B6B8DA00FA8339 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		8D8AF7E421B9E47900728F54 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		8D9344F621D2502400702AFC /* CommentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CommentData.swift; path = "/Users/tatsunari/Documents/ドキュメント/12.iOSapp study/project_Instagram/Instagram/CommentData.swift"; sourceTree = "<absolute>"; };
+		8D9344F621D2502400702AFC /* CommentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CommentData.swift; path = "/Users/tatsunari/Documents/ドキュメント/12.iOSapp study/project_Instagram/Instagram/CommentScreen/CommentData.swift"; sourceTree = "<absolute>"; };
 		8DB0A66521C3D00F0080EC6A /* PostData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostData.swift; sourceTree = "<group>"; };
 		8DB0A66721C6451F0080EC6A /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		8DB0A66D21C64E890080EC6A /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
@@ -111,7 +111,6 @@
 				8D845F5D21B6B7A200FA8339 /* LaunchScreen.storyboard */,
 				8D845F6021B6B7A200FA8339 /* Info.plist */,
 				8D8AF7E421B9E47900728F54 /* GoogleService-Info.plist */,
-				8D9344F621D2502400702AFC /* CommentData.swift */,
 				8DB0A66521C3D00F0080EC6A /* PostData.swift */,
 				8DEE95BA21BFFAB50017E9DE /* PostTableViewCell.swift */,
 				8DEE95BB21BFFAB50017E9DE /* PostTableViewCell.xib */,
@@ -122,6 +121,7 @@
 		8DB0A67121C64EAE0080EC6A /* CommentScreen */ = {
 			isa = PBXGroup;
 			children = (
+				8D9344F621D2502400702AFC /* CommentData.swift */,
 				8DB0A66721C6451F0080EC6A /* CommentViewController.swift */,
 				8DB0A66D21C64E890080EC6A /* CommentTableViewCell.swift */,
 				8DB0A66E21C64E890080EC6A /* CommentViewCell.xib */,

@@ -12,17 +12,6 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var captionLabel: UILabel!
     @IBOutlet weak var commentButton: UIButton!
     
-    //@IBAction func commentButton(_ sender: Any) {
-        //1　PostTableViewCell内のコメントボタンをタップ
-        ////①　CommentViewController画面へ遷移
-        //////書き込みコメントを上から順にキャプションの表示
-        //////その下にコメントを表示していく
-        //////最下段にコメントするテキストフィールドを表示
-        //////投稿するボタンの作成
-        // ログアウトボタンをタップしたときに呼ばれるメソッ
-        //// コメント入力画面を表示する
-        ////コメント入力画面から戻る
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -33,8 +22,6 @@ class PostTableViewCell: UITableViewCell {
         
         // Configure the view for the selected state
     }
-    
-    
     
     func setPostData(_ postData: PostData) {
         self.postImageView.image = postData.image
@@ -56,7 +43,4 @@ class PostTableViewCell: UITableViewCell {
             self.likeButton.setImage(buttonImage, for: .normal)
         }
     }
-    
-    
-    
 }

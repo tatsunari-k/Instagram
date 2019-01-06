@@ -21,6 +21,7 @@ class PostViewController: UIViewController {
         let name = Auth.auth().currentUser?.displayName
         
         // 辞書を作成してFirebaseに保存する
+        //
         let postRef = Database.database().reference().child(Const.PostPath)
         let postDic = ["caption": textField.text!, "image": imageString, "time": String(time), "name": name!]
         postRef.childByAutoId().setValue(postDic)
@@ -36,19 +37,15 @@ class PostViewController: UIViewController {
     @IBAction func handleCancelButton(_ sender: Any) {
         // 画面を閉じる
         dismiss(animated: true, completion: nil)
-        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // 受け取った画像をImageViewに設定する
         imageView.image = image
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
 }

@@ -322,7 +322,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZRI-dS-RW7">
-                                <rect key="frame" x="0.0" y="64" width="375" height="553"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="509"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vo0-OX-7ZL">
@@ -333,39 +333,61 @@
                                 <items>
                                     <navigationItem title="コメント一覧" leftItemsSupplementBackButton="YES" id="uxJ-Z9-MFU">
                                         <barButtonItem key="backBarButtonItem" title="戻る" id="MPp-Rr-rGS"/>
+                                        <barButtonItem key="leftBarButtonItem" title="✖︎" id="BZH-5T-vbu">
+                                            <connections>
+                                                <action selector="BackButton:" destination="wT2-JD-T4Q" id="pZf-7K-Uhz"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="コメント" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="0f7-dB-CFF">
-                                <rect key="frame" x="20" y="627" width="335" height="30"/>
+                                <rect key="frame" x="20" y="583" width="285" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="twitter"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4hm-7v-AfI">
+                                <rect key="frame" x="315" y="583" width="50" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="V1g-X1-0rE"/>
+                                </constraints>
+                                <state key="normal" title="送信"/>
+                                <connections>
+                                    <action selector="commentSendButtonAction:" destination="wT2-JD-T4Q" eventType="touchUpInside" id="MsR-I4-z10"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ZRI-dS-RW7" firstAttribute="top" secondItem="j5L-ad-gAb" secondAttribute="bottom" id="GG0-Sc-1Fe"/>
+                            <constraint firstItem="4hm-7v-AfI" firstAttribute="centerY" secondItem="0f7-dB-CFF" secondAttribute="centerY" id="Mmx-Td-Qcu"/>
                             <constraint firstItem="Vo0-OX-7ZL" firstAttribute="top" secondItem="mme-92-tKu" secondAttribute="top" id="USc-48-Vd2"/>
                             <constraint firstItem="0f7-dB-CFF" firstAttribute="top" secondItem="ZRI-dS-RW7" secondAttribute="bottom" constant="10" id="ame-l8-BMH"/>
                             <constraint firstItem="mme-92-tKu" firstAttribute="trailing" secondItem="ZRI-dS-RW7" secondAttribute="trailing" id="cOA-6f-Rwd"/>
                             <constraint firstItem="mme-92-tKu" firstAttribute="bottom" secondItem="0f7-dB-CFF" secondAttribute="bottom" constant="10" id="ems-1U-nyk"/>
                             <constraint firstItem="ZRI-dS-RW7" firstAttribute="top" secondItem="Vo0-OX-7ZL" secondAttribute="bottom" id="gAn-Nk-pGK"/>
                             <constraint firstItem="Vo0-OX-7ZL" firstAttribute="leading" secondItem="ZRI-dS-RW7" secondAttribute="leading" id="i5u-aY-FED"/>
+                            <constraint firstItem="4hm-7v-AfI" firstAttribute="leading" secondItem="0f7-dB-CFF" secondAttribute="trailing" constant="10" id="iTi-b2-Qi5"/>
                             <constraint firstItem="Vo0-OX-7ZL" firstAttribute="trailing" secondItem="ZRI-dS-RW7" secondAttribute="trailing" id="lM3-QG-qax"/>
                             <constraint firstItem="ZRI-dS-RW7" firstAttribute="leading" secondItem="mme-92-tKu" secondAttribute="leading" id="mDQ-qY-tcp"/>
                             <constraint firstItem="ZRI-dS-RW7" firstAttribute="trailing" secondItem="j5L-ad-gAb" secondAttribute="trailing" id="oxy-nh-nmg"/>
-                            <constraint firstItem="mme-92-tKu" firstAttribute="trailing" secondItem="0f7-dB-CFF" secondAttribute="trailing" constant="20" id="rKE-i7-3Ub"/>
+                            <constraint firstItem="mme-92-tKu" firstAttribute="trailing" secondItem="4hm-7v-AfI" secondAttribute="trailing" constant="10" id="qgl-xY-9qh"/>
                             <constraint firstItem="0f7-dB-CFF" firstAttribute="leading" secondItem="mme-92-tKu" secondAttribute="leading" constant="20" id="xNZ-uv-ZGg"/>
                             <constraint firstItem="ZRI-dS-RW7" firstAttribute="leading" secondItem="j5L-ad-gAb" secondAttribute="leading" id="zXV-x7-hj8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mme-92-tKu"/>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem title="✖︎" id="q1W-AG-ET7"/>
+                    </toolbarItems>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="commentNavigationBar" destination="j5L-ad-gAb" id="YQ9-Am-3gx"/>
+                        <outlet property="commentSendButton" destination="4hm-7v-AfI" id="GRG-IJ-PPI"/>
                         <outlet property="commentTableView" destination="ZRI-dS-RW7" id="eSg-pU-dTz"/>
-                        <outlet property="textField" destination="0f7-dB-CFF" id="NJo-dY-WIf"/>
+                        <outlet property="commentTextField" destination="0f7-dB-CFF" id="edx-BQ-1fo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bKy-I0-ooT" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -12,7 +12,6 @@ class PostData: NSObject {
     var likes: [String] = []
     var isLiked: Bool = false
     var isCommented: Bool = false
-        //var Comment: [String] = []
     //投稿に対して返信したコメントセット　コメントデータ型の配列　
     var comments: [CommentData] = []
     
