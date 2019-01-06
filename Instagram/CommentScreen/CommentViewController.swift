@@ -13,7 +13,6 @@ class CommentViewController: UIViewController, UITableViewDataSource, UITableVie
     var commentTextFieldString: String! = "" // コメント文字列保存用の変数
     //投稿データの取得　この中にコメントデータの配列var comments: [CommentData] = []も格納されている
     var postData : PostData! = nil   //PostDataを配列でインスタンス化
-    //var postArray: [PostData] = []
     var observing = false   // DatabaseのobserveEventの登録状態を表す
     
     @IBOutlet weak var commentTableView: UITableView!
@@ -28,14 +27,15 @@ class CommentViewController: UIViewController, UITableViewDataSource, UITableVie
     
         // 送信ボタン押下時のアクション
     @IBAction func commentSendButtonAction(_ sender: Any) {
-        print("DEBUG_PRINT: commentSendButtonをタップし")
+        print("DEBUG_PRINT: commentSendButtonをタップ")
         if commentTextField.text == "" {
             SVProgressHUD.showError(withStatus: "コメントを入力して下さい")
             return
         }
         
         // TextFieldから文字を取得
-        commentTextFieldString = commentTextField.text!
+        //commentTextFieldString = commentTextField.text!
+        //↑newComment部分のcommentTextField.text!に相当
         // TextFieldの中身をクリア
         commentTextField.text = ""
         
@@ -43,7 +43,7 @@ class CommentViewController: UIViewController, UITableViewDataSource, UITableVie
         isClose = true
         
         // postDataに必要な情報を取得しておく
-        let time = Date.timeIntervalSinceReferenceDate
+        //let time = Date.timeIntervalSinceReferenceDate
         let name = Auth.auth().currentUser?.displayName
         
         // 新しいコメントをcomments配列に追加
@@ -83,22 +83,9 @@ class CommentViewController: UIViewController, UITableViewDataSource, UITableVie
         // セルを取得してデータを設定する
         let commentData = postData?.comments[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "CommentCell") as! CommentTableViewCell
-        //let cell = tableView.dequeueReusableCell(withIdentifier: "CommentCell", for: indexPath) as! CommentTableViewCell
         cell.setCommentData(commentData!)
         return cell
     }
-    
-    
-    //1　PostTableViewCell内のコメントボタンをタップ
-    ////①　CommentViewController画面へ遷移
-    //////書き込みコメントを上から順にキャプションの表示
-    //////その下にコメントを表示していく
-
-    
-    ////②　HomeViewController画面へと戻る
-    //////PostTableViewCell内のラベルにコメントを反映
-    //////コメントを記入したユーザー情報と共に表示　このときの表示する数は一旦一つだけにしておく。andtableView上の一番最新のみとしよう
-    
     
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////
@@ -145,7 +132,6 @@ class CommentViewController: UIViewController, UITableViewDataSource, UITableVie
         print("DEBUG_PRINT: Viewをタップした際にUITextFieldを閉じる")
         //キーボードを閉じる処理
         self.view.endEditing(true)
-    
     }
     
     //UIKeyboardWillShow通知を受けて、実行される関数

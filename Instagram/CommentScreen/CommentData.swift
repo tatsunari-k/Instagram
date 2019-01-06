@@ -2,16 +2,15 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 
-
 class CommentData: NSObject {
-    var id: String?
+    //var id: String?
     var userName: String?
     var comment: String?
-    var date: Date?
+    //var date: Date?
+    
     
 ////init関数：イニシャライザと呼ばれる初期化関数。因数として初期化する変数を作成しておき、
 ////インスタンス化して呼び出しをかける際に、初期化した変数へ代入処理するなどして利用する
-    
     init(snapshot: DataSnapshot) {
         let valueDictionary = snapshot.value as! [String: Any]
         self.comment = valueDictionary["comment"] as? String
@@ -21,6 +20,7 @@ class CommentData: NSObject {
     init(comment: String, userName: String) {
         self.comment = comment
         self.userName = userName
+        //self.date = Date(timeIntervalSinceReferenceDate: TimeInterval(time!)!)
     }
 }
 
@@ -32,6 +32,7 @@ extension CommentData {
             let data = comments[index]
             let commentDic = ["comment":data.comment!, "name": data.userName!]
             dic.updateValue(commentDic, forKey: "\(index)")
+            
         }
         return dic
     }
